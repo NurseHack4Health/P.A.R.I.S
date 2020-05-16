@@ -114,6 +114,8 @@
             <Visible>false</Visible>
         </ImageAsset>
         <ImageAsset Include="Assets.xcassets\AR Resources.arresourcegroup\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\AR Resources.arresourcegroup\ARImage.arreferenceimage\Contents.json" />
+        <ImageAsset Include="Assets.xcassets\AR Resources.arresourcegroup\ARImage.arreferenceimage\Unitag_QRCode_1589656035118.png" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
@@ -135,6 +137,16 @@
         <Compile Include="ViewController.designer.cs">
             <DependentUpon>ViewController.cs</DependentUpon>
         </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="Images\test panel 01.png" />
+      <BundleResource Include="Images\test panel 06.png" />
+      <BundleResource Include="Images\test panel 07.png" />
+      <BundleResource Include="Images\test panel 02.png" />
+      <BundleResource Include="Images\test panel 04.png" />
+      <BundleResource Include="Images\test panel 05.png" />
+      <BundleResource Include="Images\test panel 08.png" />
+      <BundleResource Include="Images\test panel 03.png" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

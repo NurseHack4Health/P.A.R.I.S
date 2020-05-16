@@ -102,12 +102,13 @@ namespace XamarinArkitSample
             return new PlaneNode[]
             {
                 // Need the team to provide the images
-                new PlaneNode(1, 300, 600, new SCNVector3(), "Images/panel1.png"),
-                new PlaneNode(2, 300, 600, new SCNVector3(), "Images/panel2.png"),
-                new PlaneNode(3, 300, 600, new SCNVector3(), "Images/panel3.png"),
-                new PlaneNode(4, 300, 600, new SCNVector3(), "Images/panel4.png"),
-                new PlaneNode(5, 300, 600, new SCNVector3(), "Images/panel5.png"),
-                new PlaneNode(6, 300, 600, new SCNVector3(), "Images/panel6.png"),
+                new PlaneNode(1, 300, 600, new SCNVector3(-500, 500, 0), "Images/test panel 02.png"),
+                new PlaneNode(2, 300, 600, new SCNVector3(-500, 300, 0), "Images/test panel 06.png"),
+                new PlaneNode(3, 300, 600, new SCNVector3(-100, 0, 0), "Images/test panel 01.png"),
+                new PlaneNode(4, 300, 600, new SCNVector3(100,0,0), "Images/test panel 07.png"),
+                new PlaneNode(5, 300, 600, new SCNVector3(500, 0, 0), "Images/test panel 04.png"),
+                new PlaneNode(6, 300, 600, new SCNVector3(500, 300, 0), "Images/test panel 05.png"),
+                new PlaneNode(7, 300, 600, new SCNVector3(500, -500, 0), "Images/test panel 07.png"),
 
 
             };
