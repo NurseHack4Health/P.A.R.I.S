@@ -113,9 +113,11 @@
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
             <Visible>false</Visible>
         </ImageAsset>
+        <ImageAsset Include="Assets.xcassets\AR Resources.arresourcegroup\Contents.json" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
+        <Folder Include="Images\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />

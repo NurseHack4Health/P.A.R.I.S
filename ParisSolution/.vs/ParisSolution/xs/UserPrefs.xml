@@ -1,12 +1,15 @@
 ﻿<Properties StartupConfiguration="{15277B6E-A01A-42FF-9187-691EFA56AFAC}|Default">
-  <MonoDevelop.Ide.ItemProperties.PARIS FirstBuild="True" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.2E8E2B4D-D4A9-4B1E-8C3D-C8D227C6D056" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.PARIS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.2E8E2B4D-D4A9-4B1E-8C3D-C8D227C6D056" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="PARIS/ViewController.cs">
+    <Files>
+      <File FileName="PARIS/ViewController.cs" Line="66" Column="91" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ParisSolution" expanded="True">
             <Node name="PARIS" expanded="True">
-              <Node name="GettingStarted" selected="True" />
+              <Node name="ViewController.cs" selected="True" />
             </Node>
           </Node>
         </State>
