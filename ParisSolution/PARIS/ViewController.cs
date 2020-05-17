@@ -79,9 +79,10 @@ namespace XamarinArkitSample
             var width = detectedImage.PhysicalSize.Width;
             var length = detectedImage.PhysicalSize.Height;
             var planeNode = new PlaneNode(0, width, length, new SCNVector3(0, 0, 0), "");
+            planeNode.Opacity = 1f;
             float angle = (float)(-Math.PI / 2);
             planeNode.EulerAngles = new SCNVector3(angle, 0, 0);
-            node.AddChildNode(planeNode);
+            //node.AddChildNode(planeNode);
 
             // Get and Show information panels
             foreach (var informationPanelNode in GetPatientInformationPanels())
@@ -91,7 +92,9 @@ namespace XamarinArkitSample
                 var actionSequence = SCNAction.Sequence(new[] { waitAction, fadeInAction });
 
                 // Not sure I can run actions before adding. May have to add, then run.
-                informationPanelNode.RunAction(actionSequence); 
+                informationPanelNode.RunAction(actionSequence);
+
+                informationPanelNode.EulerAngles = new SCNVector3(angle, 0, 0);
 
                 node.AddChildNode(informationPanelNode);
             }
@@ -102,20 +105,29 @@ namespace XamarinArkitSample
             return new PlaneNode[]
             {
                 // Need the team to provide the images
-                new PlaneNode(1, 300, 600, new SCNVector3(-500, 500, 0), "Images/test panel 02.png"),
-                new PlaneNode(2, 300, 600, new SCNVector3(-500, 300, 0), "Images/test panel 06.png"),
-                new PlaneNode(3, 300, 600, new SCNVector3(-100, 0, 0), "Images/test panel 01.png"),
-                new PlaneNode(4, 300, 600, new SCNVector3(100,0,0), "Images/test panel 07.png"),
-                new PlaneNode(5, 300, 600, new SCNVector3(500, 0, 0), "Images/test panel 04.png"),
-                new PlaneNode(6, 300, 600, new SCNVector3(500, 300, 0), "Images/test panel 05.png"),
-                new PlaneNode(7, 300, 600, new SCNVector3(500, -500, 0), "Images/test panel 07.png"),
+                new PlaneNode(1, 0.3f, 0.5f, new SCNVector3(-0.35f, -0.35f, -0.015f), "Images/vitals.png"), // Vital s
+                new PlaneNode(2, 0.3f, 0.6f, new SCNVector3(-0.35f, 0.25f, 0.01f), "Images/neuro-cardiac.png"), // Neuro
+
+                new PlaneNode(3, 0.3f, 0.6f, new SCNVector3(0, 0, 0.01f), "Images/patient-details2.png"), // Center
+
+                new PlaneNode(4, 0.3f, 0.6f, new SCNVector3(0.35f, 0.2f, 0.01f), "Images/gi-gu.png"), // Labs/Radiology
+                new PlaneNode(5, 0.3f, 0.5f, new SCNVector3(0.35f, -0.4f, 0.01f), "Images/labs-radiology.png"), // Labs/Radiology
+
+                new PlaneNode(6, 0.3f, 0.6f, new SCNVector3(0.7f, 0.25f, 0.01f), "Images/medications.png"), // Medications
+                new PlaneNode(7, 0.3f, 0.6f, new SCNVector3(0.7f, -0.45f, 0.01f), "Images/xrays.png"), // xrays
+
+
+
+                //new PlaneNode(5, -0.1f, 0.2f, new SCNVector3(0.3f, 0, 0), "Images/test panel 04.png"), // Right 1
+                //new PlaneNode(6, -0.1f, 0.2f, new SCNVector3(0.5f, -0.1f, 0), "Images/test panel 05.png"),  // Right 2
+                //new PlaneNode(7, -0.1f, 0.2f, new SCNVector3(0.4f, -0.5f, 0), "Images/test panel 08.png"), // bottom right
 
 
             };
 
         }
 
-       
+
     }
 
     public class PlaneNode : SCNNode
@@ -128,7 +140,11 @@ namespace XamarinArkitSample
             {
                 Geometry = CreateGeometry(width, length, imagePath),
                 Position = position,
+
             };
+
+            Opacity = 0;
+
 
             Number = number;
 
@@ -138,10 +154,24 @@ namespace XamarinArkitSample
 
         private static SCNGeometry CreateGeometry(nfloat width, nfloat length, string imagePath)
         {
-            var image = UIImage.FromFile(imagePath);
-
+            UIImage image = null;
             var material = new SCNMaterial();
-            material.Diffuse.Contents = image;
+
+            if (!string.IsNullOrEmpty(imagePath))
+            {
+                image = UIImage.FromFile(imagePath);
+                material.Diffuse.Contents = image;
+                //material.Diffuse.ContentColor
+            }
+            else
+            {
+                material.Diffuse.Contents = UIColor.White;
+            }
+
+
+
+
+
             material.DoubleSided = true;
 
             var geometry = SCNPlane.Create(width, length);
